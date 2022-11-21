@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 15:07:24 by bberthod          #+#    #+#             */
-/*   Updated: 2022/11/21 19:01:35 by blandineber      ###   ########.fr       */
+/*   Created: 2022/11/21 19:22:30 by blandineber       #+#    #+#             */
+/*   Updated: 2022/11/21 19:30:17 by blandineber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	void	*ptr;
+	t_list	*tmp;
 
-	if (size > 65535)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, nmemb);
-	return (ptr);
+	if (lst)
+	{
+		if (*lst == NULL)
+			*lst = new;
+		else
+		{
+			tmp = ft_lstlast(*(lst));
+			tmp -> next = new;
+		}
+	}
 }
-
-/*
-int	main(void)
-{
-	size_t nmemb;
-	size_t size;
-
-	nmemb = 3;
-	size = 8;
-	printf("%p\n", ft_calloc(nmemb, size));
-	printf("%p\n", calloc(nmemb, size));
-}
-*/

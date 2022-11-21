@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 15:07:24 by bberthod          #+#    #+#             */
-/*   Updated: 2022/11/21 19:01:35 by blandineber      ###   ########.fr       */
+/*   Created: 2022/11/21 19:46:21 by blandineber       #+#    #+#             */
+/*   Updated: 2022/11/21 19:50:49 by blandineber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*ptr;
+	t_list	*new_lst;
+	t_list	*new_elem;
 
-	if (size > 65535)
+	if (!lst || !f)
 		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (!ptr)
+	if (!(new_elem = ft_lstnew(f(lst->content))))
+	{
+		ft_lstclear(&lst, del);
 		return (NULL);
-	ft_bzero(ptr, nmemb);
-	return (ptr);
+	}
+	new_lst = new_elem;
+	lst = lst->next;
+	while (lst)
+	{
+		if (!(new_elem = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&lst, del);
+			ft_lstclear(&new_lst, del);
+			break ;
+		}
+		lst = lst->next;
+		ft_lstadd_back(&new_lst, new_elem);
+	}
+	return (new_lst);
 }
-
-/*
-int	main(void)
-{
-	size_t nmemb;
-	size_t size;
-
-	nmemb = 3;
-	size = 8;
-	printf("%p\n", ft_calloc(nmemb, size));
-	printf("%p\n", calloc(nmemb, size));
-}
-*/
