@@ -6,7 +6,7 @@
 /*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:36:10 by blandineber       #+#    #+#             */
-/*   Updated: 2022/11/21 19:40:21 by blandineber      ###   ########.fr       */
+/*   Updated: 2022/11/24 11:19:34 by bberthod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (lst)
 	{

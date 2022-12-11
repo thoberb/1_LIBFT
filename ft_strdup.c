@@ -6,7 +6,7 @@
 /*   By: bberthod <bberthod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:33:52 by bberthod          #+#    #+#             */
-/*   Updated: 2022/11/08 15:57:37 by bberthod         ###   ########.fr       */
+/*   Updated: 2022/11/24 12:13:53 by bberthod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	s_size = ft_strlen(s);
 	new = (char *) malloc(sizeof(*new) * (s_size + 1));
+	if (!new)
+		return (NULL);
 	while (s[i])
 	{
 		new[i] = s[i];

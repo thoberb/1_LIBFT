@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
+/*   By: bberthod <bberthod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:22:30 by blandineber       #+#    #+#             */
-/*   Updated: 2022/11/21 19:30:17 by blandineber      ###   ########.fr       */
+/*   Updated: 2022/11/24 13:24:37 by bberthod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

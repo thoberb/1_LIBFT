@@ -6,13 +6,13 @@
 /*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:41:22 by blandineber       #+#    #+#             */
-/*   Updated: 2022/11/21 19:45:51 by blandineber      ###   ########.fr       */
+/*   Updated: 2022/11/24 11:29:22 by bberthod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst)
 	{

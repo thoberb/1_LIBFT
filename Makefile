@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+         #
+#    By: bberthod <bberthod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 18:42:23 by bberthod          #+#    #+#              #
-#    Updated: 2022/11/18 19:55:48 by blandineber      ###   ########.fr        #
+#    Updated: 2022/11/24 15:06:44 by bberthod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC	=	gcc
+CC	=	cc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
@@ -43,10 +43,8 @@ all:	$(NAME)
 $(NAME):	$(OBJECTS) $(INCLUDE)
 			$(AR) $(NAME) $(OBJECTS)
 
-.c.o:	$(CC) (CFLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
-
 clean:
-		$(RM) $(OBJECTS)
+		$(RM) $(OBJECTS) $(BONUS_OBJS)
 
 fclean:	clean
 		$(RM) $(NAME)

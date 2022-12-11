@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blandineberthod <blandineberthod@studen    +#+  +:+       +#+        */
+/*   By: bberthod <bberthod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:01:30 by bberthod          #+#    #+#             */
-/*   Updated: 2022/11/18 12:32:44 by blandineber      ###   ########.fr       */
+/*   Updated: 2022/11/24 13:15:59 by bberthod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t i, slen;
-	char *a;
+	char	*new;
+	size_t	slen;
 
-	if (s == NULL)
-		return NULL;
+	if (!s)
+		return (NULL);
 	slen = ft_strlen(s);
 	if (start > slen)
 		start = slen;
 	if (len > slen - start)
 		len = slen - start;
-	if (!(a = malloc((len + 1) * sizeof(char))))
-		return NULL;
-	for (i = 0; i < len; i++)
-		a[i] = s[start + i];
-	a[i] = '\0';
-	return a;
+	new = malloc(sizeof(*new) * (len + 1));
+	if (!new)
+		return (NULL);
+	ft_memcpy((void *)new, (const void *)s + start, len);
+	new[len] = 0;
+	return (new);
 }
 
 /*
